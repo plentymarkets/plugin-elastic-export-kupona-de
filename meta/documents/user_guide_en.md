@@ -11,7 +11,7 @@ Kupona.de is an agency for online performance marketing. It is active in the fie
 
 To use this format, you need the Elastic Export plugin.
 
-Follow the instructions given on the [Exporting data](https://www.plentymarkets.co.uk/manual/data-exchange/exporting-data/#4) page of the manual to set up KuponaDE-Plugin in plentymarkets.
+Follow the instructions given on the [Exporting data](https://www.plentymarkets.co.uk/manual/data-exchange/exporting-data/#4) page of the manual to set up the data format KuponaDE-Plugin in plentymarkets.
 
 ## License
 
