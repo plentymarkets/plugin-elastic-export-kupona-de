@@ -21,7 +21,7 @@ class KuponaDE extends ResultFields
 
 
     /**
-     * FashionDE constructor.
+     * KuponaDE constructor.
      *
      * @param ArrayHelper $arrayHelper
      */

@@ -34,6 +34,7 @@ class KuponaDE extends CSVPluginGenerator
 
     /**
      * KuponaDE constructor.
+     *
      * @param ArrayHelper $arrayHelper
      */
     public function __construct(ArrayHelper $arrayHelper)
