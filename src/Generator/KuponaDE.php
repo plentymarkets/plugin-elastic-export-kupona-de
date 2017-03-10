@@ -108,7 +108,7 @@ class KuponaDE extends CSVPluginGenerator
             foreach($resultData['documents'] as $variation)
             {
                 // Get and set the price and rrp
-                $price = number_format((float)$this->idlVariations[$variation['id']]['variationRecommendedRetailPrice.price'], 2, '.', '');
+                $price = number_format((float)$this->idlVariations[$variation['id']]['variationRetailPrice.price'], 2, '.', '');
                 $rrp = number_format((float)$this->elasticExportCoreHelper->getRecommendedRetailPrice($this->idlVariations[$variation['id']]['variationRecommendedRetailPrice.price'], $settings), 2, '.', '');
 
                 // Get shipping costs
@@ -127,7 +127,7 @@ class KuponaDE extends CSVPluginGenerator
                     'prod_name'             => $this->elasticExportCoreHelper->getName($variation, $settings),
                     'prod_price'            => $price,
                     'prod_price_old'        => $rrp,
-                    'currency_symbol'       => $this->idlVariations[$variation['id']]['variationRecommendedRetailPrice.currency'],
+                    'currency_symbol'       => $this->idlVariations[$variation['id']]['variationRetailPrice.currency'],
                     'prod_url'              => $this->elasticExportCoreHelper->getUrl($variation, $settings, true, false),
                     'category'              => $this->elasticExportCoreHelper->getCategory((int)$variation['data']['defaultCategories'][0]['id'], $settings->get('lang'), $settings->get('plentyId')),
                     'category_url'          => '',
@@ -138,7 +138,7 @@ class KuponaDE extends CSVPluginGenerator
                     'img_small'             => $this->getImages($variation, $settings, ';', 'preview'),
                     'img_medium'            => $this->getImages($variation, $settings, ';', 'middle'),
                     'img_large'             => $this->getImages($variation, $settings, ';', 'normal'),
-                    'ean_code'              => $variation['data']['barcodes']['code'],
+                    'ean_code'              => $this->elasticExportCoreHelper->getBarcodeByType($variation, $settings->get('barcode')),
                     'versandkosten'         => $shippingCost,
                     'lieferzeit'            => $this->elasticExportCoreHelper->getAvailability($variation, $settings),
                     'platform'              => '',
