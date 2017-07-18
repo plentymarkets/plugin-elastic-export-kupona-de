@@ -1,5 +1,10 @@
 # Release Notes for Elastic Export Kupona.de
 
+## v1.0.4 (2017-07-18)
+
+### Fixed
+- The plugin Elastic Export is now required to use the plugin format KuponaDE.
+
 ## v1.0.3 (2017-05-24)
 
 ### Changed
