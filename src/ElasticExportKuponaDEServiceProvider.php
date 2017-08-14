@@ -32,7 +32,8 @@ class ElasticExportKuponaDEServiceProvider extends DataExchangeServiceProvider
             'ElasticExportKuponaDE\ResultField\KuponaDE',
             'ElasticExportKuponaDE\Generator\KuponaDE',
             '',
-            true
+            true,
+			true
         );
     }
 }
