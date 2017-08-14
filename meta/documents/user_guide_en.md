@@ -70,7 +70,7 @@ The following table lists details for settings, format settings and recommended 
             Markets
         </td>
         <td>
-            Choose one or multiple order referrer. The chosen order referrer has to be active at the variation for the item to be exported.
+            Choose one or multiple order referrers. The chosen order referrer has to be active at the variation for the item to be exported.
         </td>        
     </tr>
     <tr>
@@ -144,7 +144,7 @@ The following table lists details for settings, format settings and recommended 
 			prod_price_old
 		</td>
 		<td>
-			<b>Content:</b> If the <b>RRP</b> is activated in the format setting and is higher than the <b>sales price</b>, the <b>sales price</b> will be exported.
+			<b>Content:</b> If the <b>RRP</b> is activated in the format setting and is higher than the <b>sales price</b>, the <b>RRP</b> will be exported.
 		</td>        
 	</tr>
 	<tr>
@@ -160,7 +160,7 @@ The following table lists details for settings, format settings and recommended 
 			prod_url
 		</td>
 		<td>
-			<b>Content:</b> The <b>URL path</b> of the item depending on the chosen <b>client</b> in the format settings.
+			<b>Content:</b> The <b>URL path</b> of the item, depending on the chosen <b>client</b> in the format settings.
 		</td>        
 	</tr>
     <tr>
@@ -176,7 +176,7 @@ The following table lists details for settings, format settings and recommended 
 			category_url
 		</td>
 		<td>
-			<b>Content:</b> Empty.
+			<b>Content:</b> Empty
 		</td>        
 	</tr>
 	<tr>
@@ -184,7 +184,7 @@ The following table lists details for settings, format settings and recommended 
 			valid_from_date
 		</td>
 		<td>
-			<b>Content:</b> Empty.
+			<b>Content:</b> Empty
 		</td>        
 	</tr>
 	<tr>
@@ -192,7 +192,7 @@ The following table lists details for settings, format settings and recommended 
 			valid_to_date
 		</td>
 		<td>
-			<b>Content:</b> Empty.
+			<b>Content:</b> Empty
 		</td>        
 	</tr>
 	<tr>
@@ -264,7 +264,7 @@ The following table lists details for settings, format settings and recommended 
 			platform
 		</td>
 		<td>
-			<b>Content:</b> Empty.
+			<b>Content:</b> Empty
 		</td>        
 	</tr>
 	 <tr>
@@ -272,7 +272,7 @@ The following table lists details for settings, format settings and recommended 
 			grundpreis
 		</td>
 		<td>
-			<b>Content:</b> The <b>base price information</b>. The format is "price / unit". (Example: 10,00 EUR / Kilogram)
+			<b>Content:</b> The <b>base price information</b>. The format is "price / unit". (Example: 10,00 EUR / kilogram)
 		</td>        
 	</tr>
 </table>
