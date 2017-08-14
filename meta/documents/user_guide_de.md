@@ -145,7 +145,7 @@ In der folgenden Tabelle finden Sie Hinweise zu den Einstellungen, Formateinstel
 			prod_price_old
 		</td>
 		<td>
-			<b>Ausgabe:</b> Der <b>Verkaufspreis</b> der Variante. Wenn der <b>UVP</b> in den Formateinstellungen aktiviert wurde und höher ist als der Verkaufspreis, wird dieser hier eingetragen.
+			<b>Ausgabe:</b> Der <b>Verkaufspreis</b> der Variante. Wenn der <b>UVP</b> in den Formateinstellungen aktiviert wurde und höher ist als der Verkaufspreis, wird dieser hier eingetragen. 
 		</td>        
 	</tr>
 	<tr>
