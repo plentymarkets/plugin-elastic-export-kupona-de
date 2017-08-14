@@ -3,7 +3,7 @@
 ## v1.0.5 (2017-08-11)
 
 ### Geändert
-- Das Formatplugin basiert nun nur noch auf Elastic Search.
+- Das Format-Plugin basiert nun nur noch auf Elastic Search.
 - Die Performance wurde verbessert.
 
 ## v1.0.4 (2017-07-18)
