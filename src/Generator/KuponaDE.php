@@ -44,6 +44,11 @@ class KuponaDE extends CSVPluginGenerator
 	 */
     private $elasticExportPriceHelper;
 
+	/**
+	 * @var array
+	 */
+    private $shippingCostCache = [];
+
     /**
      * KuponaDE constructor.
      *
@@ -175,14 +180,14 @@ class KuponaDE extends CSVPluginGenerator
 		}
 
 		// Get shipping costs
-		$shippingCost = $this->elasticExportHelper->getShippingCost($variation['data']['item']['id'], $settings);
-		if(!is_null($shippingCost))
+
+		if(array_key_exists($variation['data']['item']['id'], $this->shippingCostCache))
 		{
-			$shippingCost = number_format((float)$shippingCost, 2, '.', '');
+			$shippingCost = $this->shippingCostCache[$variation['data']['item']['id']]['shippingCost'];
 		}
 		else
 		{
-			$shippingCost = '';
+			$shippingCost = $this->getShippingCost($variation['data']['item']['id'], $settings);
 		}
 
 		$imageList = $this->elasticExportHelper->getImageListInOrder($variation, $settings, 0, $this->elasticExportHelper::VARIATION_IMAGES, $this->elasticExportHelper::SIZE_NORMAL, true);
@@ -195,13 +200,13 @@ class KuponaDE extends CSVPluginGenerator
 		{
 			if($iteration == 1)
 			{
-				$previewUls = $previewUrls . $image['urlPreview'];
+				$previewUrls = $previewUrls . $image['urlPreview'];
 				$middleUrls = $middleUrls . $image['urlMiddle'];
 				$normalUrls = $normalUrls . $image['url'];
 			}
 			else
 			{
-				$previewUls = $previewUrls . ';'.$image['urlPreview'];
+				$previewUrls = $previewUrls . ';'.$image['urlPreview'];
 				$middleUrls = $middleUrls . ';'.$image['urlMiddle'];
 				$normalUrls = $normalUrls . ';'.$image['url'];
 			}
@@ -256,4 +261,21 @@ class KuponaDE extends CSVPluginGenerator
 
         return '';
     }
+
+    private function getShippingCost($itemId, $settings)
+	{
+		$shippingCost = $this->elasticExportHelper->getShippingCost($itemId, $settings);
+		if(!is_null($shippingCost))
+		{
+			$shippingCost = number_format((float)$shippingCost, 2, '.', '');
+		}
+		else
+		{
+			$shippingCost = '';
+		}
+
+		$this->shippingCostCache[$itemId] = $shippingCost;
+
+		return $shippingCost;
+	}
 }
