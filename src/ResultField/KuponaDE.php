@@ -231,6 +231,9 @@ class KuponaDE extends ResultFields
 				'images.all',
 				'images.item',
 				'images.variation',
+
+				// Texts
+				'texts',
 			],
 
 			'nestedKeys' => [

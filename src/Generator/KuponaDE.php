@@ -187,7 +187,7 @@ class KuponaDE extends CSVPluginGenerator
 
 		$imageList = $this->elasticExportHelper->getImageListInOrder($variation, $settings, 0, $this->elasticExportHelper::VARIATION_IMAGES, $this->elasticExportHelper::SIZE_NORMAL, true);
 
-		$previewUls = '';
+		$previewUrls = '';
 		$middleUrls = '';
 		$normalUrls = '';
 		$iteration = 1;
@@ -195,13 +195,13 @@ class KuponaDE extends CSVPluginGenerator
 		{
 			if($iteration == 1)
 			{
-				$previewUls = $previewUls . $image['urlPreview'];
+				$previewUls = $previewUrls . $image['urlPreview'];
 				$middleUrls = $middleUrls . $image['urlMiddle'];
 				$normalUrls = $normalUrls . $image['url'];
 			}
 			else
 			{
-				$previewUls = $previewUls . ';'.$image['urlPreview'];
+				$previewUls = $previewUrls . ';'.$image['urlPreview'];
 				$middleUrls = $middleUrls . ';'.$image['urlMiddle'];
 				$normalUrls = $normalUrls . ';'.$image['url'];
 			}
@@ -211,7 +211,7 @@ class KuponaDE extends CSVPluginGenerator
 
 		$data = [
 			'prod_number'           => $variation['id'],
-			'prod_name'             => $this->elasticExportHelper->getMutatedUrl($variation, $settings),
+			'prod_name'             => $this->elasticExportHelper->getMutatedName($variation, $settings),
 			'prod_price'            => $price,
 			'prod_price_old'        => $rrp,
 			'currency_symbol'       => $currency,
@@ -222,7 +222,7 @@ class KuponaDE extends CSVPluginGenerator
 			'valid_to_date'         => '',
 			'prod_description'      => $this->elasticExportHelper->getMutatedPreviewText($variation, $settings, 256),
 			'prod_description_long' => $this->elasticExportHelper->getMutatedDescription($variation, $settings, 256),
-			'img_small'             => $previewUls,
+			'img_small'             => $previewUrls,
 			'img_medium'            => $middleUrls,
 			'img_large'             => $normalUrls,
 			'ean_code'              => $this->elasticExportHelper->getBarcodeByType($variation, $settings->get('barcode')),
