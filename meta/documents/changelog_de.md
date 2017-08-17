@@ -1,6 +1,6 @@
 # Release Notes für Elastic Export Kupona.de
 
-## v1.0.5 (2017-08-11)
+## v1.0.5 (2017-08-17)
 
 ### Geändert
 - Das Format-Plugin basiert nun nur noch auf Elastic Search.

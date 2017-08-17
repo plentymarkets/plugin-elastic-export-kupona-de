@@ -90,6 +90,10 @@ class KuponaDE extends CSVPluginGenerator
 
 				$resultList = $elasticSearch->execute();
 
+				$this->getLogger(__METHOD__)->error('ElasticExportKuponaDE::logs.esError', [
+					'Error message ' => $resultList['error'],
+				]);
+
 				foreach($resultList['documents'] as $variation)
 				{
 					if($lines == $filter['limit'])
@@ -108,6 +112,7 @@ class KuponaDE extends CSVPluginGenerator
 						try
 						{
 							$this->buildRow($variation, $settings);
+							$lines = $lines +1;
 						}
 						catch(\Throwable $throwable)
 						{
@@ -117,7 +122,6 @@ class KuponaDE extends CSVPluginGenerator
 								'VariationId'   => $variation['id']
 							]);
 						}
-						$lines = $lines +1;
 					}
 				}
 			}while ($elasticSearch->hasNext());
@@ -240,27 +244,6 @@ class KuponaDE extends CSVPluginGenerator
 
 		$this->addCSVContent(array_values($data));
 	}
-
-    /**
-     * Get images.
-     *
-     * @param  array    $variation
-     * @param  KeyValue $settings
-     * @param  string   $separator = ','
-     * @param  string   $imageType = 'normal'
-     * @return string
-     */
-    public function getImages($variation, KeyValue $settings, string $separator = ',', string $imageType = 'normal'):string
-    {
-        $list = $this->elasticExportHelper->getImageList($variation, $settings, $imageType);
-
-        if(count($list))
-        {
-            return implode($separator, $list);
-        }
-
-        return '';
-    }
 
     private function getShippingCost($itemId, $settings)
 	{
