@@ -5,7 +5,10 @@ namespace ElasticExportKuponaDE\ResultField;
 use Plenty\Modules\Cloud\ElasticSearch\Lib\Source\Mutator\BuiltIn\LanguageMutator;
 use Plenty\Modules\DataExchange\Contracts\ResultFields;
 use Plenty\Modules\Helper\Services\ArrayHelper;
+use Plenty\Modules\Item\Search\Mutators\BarcodeMutator;
+use Plenty\Modules\Item\Search\Mutators\DefaultCategoryMutator;
 use Plenty\Modules\Item\Search\Mutators\ImageMutator;
+use Plenty\Modules\Item\Search\Mutators\KeyMutator;
 
 
 /**
@@ -68,7 +71,21 @@ class KuponaDE extends ResultFields
             $itemDescriptionFields[] = 'texts.technicalData';
         }
 
+        $itemDescriptionFields[] = 'texts.lang';
+
         // Mutators
+
+		/**
+		 * @var KeyMutator
+		 */
+		$keyMutator = pluginApp(KeyMutator::class);
+
+		if($keyMutator instanceof KeyMutator)
+		{
+			$keyMutator->setKeyList($this->getKeyList());
+			$keyMutator->setNestedKeyList($this->getNestedKeyList());
+		}
+
         /**
          * @var ImageMutator $imageMutator
          */
@@ -77,6 +94,25 @@ class KuponaDE extends ResultFields
         {
             $imageMutator->addMarket($reference);
         }
+
+		/**
+		 * @var BarcodeMutator $barcodeMutator
+		 */
+		$barcodeMutator = pluginApp(BarcodeMutator::class);
+		if($barcodeMutator instanceof BarcodeMutator)
+		{
+			$barcodeMutator->addMarket($reference);
+		}
+
+		/**
+		 * @var DefaultCategoryMutator $defaultCategoryMutator
+		 */
+		$defaultCategoryMutator = pluginApp(DefaultCategoryMutator::class);
+
+		if($defaultCategoryMutator instanceof DefaultCategoryMutator)
+		{
+			$defaultCategoryMutator->setPlentyId($settings->get('plentyId'));
+		}
 
         /**
          * @var LanguageMutator $languageMutator
@@ -109,12 +145,12 @@ class KuponaDE extends ResultFields
                 'images.item.path',
                 'images.item.position',
 
-                'images.variation.urlMiddle',
-                'images.variation.urlPreview',
-                'images.variation.urlSecondPreview',
-                'images.variation.url',
-                'images.variation.path',
-                'images.variation.position',
+				'images.variation.urlMiddle',
+				'images.variation.urlPreview',
+				'images.variation.urlSecondPreview',
+				'images.variation.url',
+				'images.variation.path',
+				'images.variation.position',
 
                 //unit
                 'unit.id',
@@ -134,6 +170,9 @@ class KuponaDE extends ResultFields
             ],
             [
                 $languageMutator,
+				$defaultCategoryMutator,
+				$barcodeMutator,
+				$keyMutator
             ],
         ];
 
@@ -151,4 +190,108 @@ class KuponaDE extends ResultFields
 
         return $fields;
     }
+
+	/**
+	 * @return array
+	 */
+	private function getKeyList()
+	{
+		return [
+			// Item
+			'item.id',
+			'item.manufacturer.id',
+
+			// Variation
+			'variation.availability.id',
+			'variation.stockLimitation',
+
+			// Unit
+			'unit.content',
+			'unit.id',
+		];
+	}
+
+	/**
+	 * @return array
+	 */
+	private function getNestedKeyList()
+	{
+		return [
+			'keys' => [
+				// Attributes
+				'attributes',
+
+				// Barcodes
+				'barcodes',
+
+				// Default categories
+				'defaultCategories',
+
+				// Images
+				'images.all',
+				'images.item',
+				'images.variation',
+
+				// Texts
+				'texts',
+			],
+
+			'nestedKeys' => [
+				// Attributes
+				'attributes' => [
+					'attributeValueSetId',
+					'attributeId',
+					'valueId'
+				],
+
+				// Barcodes
+				'barcodes' => [
+					'code',
+					'type'
+				],
+
+				// Default categories
+				'defaultCategories' => [
+					'id'
+				],
+
+				// Images
+				'images.all' => [
+					'urlMiddle',
+					'urlPreview',
+					'urlSecondPreview',
+					'url',
+					'path',
+					'position',
+				],
+				'images.item' => [
+					'urlMiddle',
+					'urlPreview',
+					'urlSecondPreview',
+					'url',
+					'path',
+					'position',
+				],
+				'images.variation' => [
+					'urlMiddle',
+					'urlPreview',
+					'urlSecondPreview',
+					'url',
+					'path',
+					'position',
+				],
+
+				// texts
+				'texts' => [
+					'urlPath',
+					'name1',
+					'name2',
+					'name3',
+					'shortDescription',
+					'description',
+					'technicalData',
+				],
+			]
+		];
+	}
 }
