@@ -8,8 +8,8 @@
   "price": 0.00,
   "description": "This plugin adds the format Kupona.de to the Elastic Export.",
   "shortDescription": {
-    "de": "Das Plugin ElasticExportKuponaDE fügt das Datenformat KuponaDE-Plugin zum Elastischen Export hinzu.",
-    "en": "This plugin adds the format KuponaDE-Plugin to the Elastic Export."
+    "de": "Die Integration des Datenformats Kupona-Plugin ermöglicht die Artikeldatenübertragung zum Affiliate-Dienstleister Kupona über den elastischen Export.",
+    "en": "The integration of the data format Kupona-Plugin enables the transfer of item data to the affiliate service provider Kupona via the elastic export."
   },
   "categories": [
     "3523"
