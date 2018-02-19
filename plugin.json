@@ -2,14 +2,14 @@
   "name": "ElasticExportKuponaDE",
   "namespace": "ElasticExportKuponaDE",
   "type": "export",
-  "version": "1.0.8",
+  "version": "1.0.6",
   "license": "GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007",
   "pluginIcon": "icon_plugin_md.png",
   "price": 0.00,
   "description": "This plugin adds the format Kupona.de to the Elastic Export.",
   "shortDescription": {
-    "de": "Die Integration des Datenformats Kupona-Plugin ermöglicht die Artikeldatenübertragung zum Affiliate-Dienstleister Kupona über den elastischen Export.",
-    "en": "The integration of the data format Kupona-Plugin enables the transfer of item data to the affiliate service provider Kupona via the elastic export."
+    "de": "Die Integration des Datenformats Kupona-Plugin ermöglicht die Artikeldatenübertragung zum Affiliate-Dienstleister KUPONA über den elastischen Export.",
+    "en": "The integration of the data format Kupona-Plugin enables the transfer of item data to the affiliate service provider KUPONA via the elastic export."
   },
   "categories": [
     "3523"
