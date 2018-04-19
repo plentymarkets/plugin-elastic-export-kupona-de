@@ -1,5 +1,11 @@
 # Release Notes for Elastic Export Kupona.de
 
+## v1.0.7 (2018-04-19)
+
+### Changed
+- The class FiltrationService is responsible for the filtration of all variations.
+- Preview images updated.
+
 ## v1.0.6 (2018-02-16)
 
 ### Changed
