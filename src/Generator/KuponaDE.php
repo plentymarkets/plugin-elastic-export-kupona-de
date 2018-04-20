@@ -5,6 +5,7 @@ namespace ElasticExportKuponaDE\Generator;
 use ElasticExport\Helper\ElasticExportCoreHelper;
 use ElasticExport\Helper\ElasticExportPriceHelper;
 use ElasticExport\Helper\ElasticExportStockHelper;
+use ElasticExport\Services\FiltrationService;
 use Plenty\Modules\DataExchange\Contracts\CSVPluginGenerator;
 use Plenty\Modules\Helper\Services\ArrayHelper;
 use Plenty\Modules\Item\DataLayer\Models\Record;
@@ -50,6 +51,11 @@ class KuponaDE extends CSVPluginGenerator
     private $shippingCostCache = [];
 
     /**
+     * @var FiltrationService
+     */
+    private $filtrationService;
+
+    /**
      * KuponaDE constructor.
      *
      * @param ArrayHelper $arrayHelper
@@ -72,6 +78,7 @@ class KuponaDE extends CSVPluginGenerator
         $this->elasticExportPriceHelper = pluginApp(ElasticExportPriceHelper::class);
 
 		$settings = $this->arrayHelper->buildMapFromObjectList($formatSettings, 'key', 'value');
+		$this->filtrationService = pluginApp(FiltrationService::class, [$settings, $filter]);
 
 		$this->setDelimiter(self::DELIMITER);
 
@@ -104,7 +111,7 @@ class KuponaDE extends CSVPluginGenerator
 
 					if(is_array($resultList['documents']) && count($resultList['documents']) > 0)
 					{
-						if($this->elasticExportStockHelper->isFilteredByStock($variation, $filter) === true)
+						if($this->filtrationService->filter($variation))
 						{
 							continue;
 						}
