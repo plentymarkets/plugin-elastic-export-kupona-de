@@ -12,7 +12,10 @@
     "en": "The integration of the data format Kupona-Plugin enables the transfer of item data to the affiliate service provider KUPONA via the elastic export."
   },
   "categories": ["3523"],
-  "marketplaceName": "KUPONA",
+  "marketplaceName": {
+    "de": "KUPONA",
+    "en": "KUPONA"
+  },
   "author": "plentymarkets GmbH",
   "require": ["ElasticExport"],
   "authorIcon": "icon_author_xs.png",
