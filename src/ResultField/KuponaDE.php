@@ -120,7 +120,7 @@ class KuponaDE extends ResultFields
         /**
          * @var LanguageMutator $languageMutator
          */
-		$languageMutator = pluginApp(LanguageMutator::class, ['language' => [$settings->get('lang')]]);
+		$languageMutator = pluginApp(LanguageMutator::class, ['languages' => [$settings->get('lang')]]);
 
         // Fields
         $fields = [
