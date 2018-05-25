@@ -2,7 +2,7 @@
 
 ## v1.0.9 (2018-05-25)
 
-### Hinzugefügt
+### Geändert
 - Der User Guide wurde erweitert.
 
 ## v1.0.8 (2018-04-30)
