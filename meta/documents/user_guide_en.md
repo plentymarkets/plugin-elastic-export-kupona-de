@@ -11,7 +11,7 @@ Kupona.de is an agency for online performance marketing. It is active in the fie
 
 By installing this plugin you will receive the export format **KuponaDE-Plugin**. Use this format to exchange data between plentymarkets and Kupona. It is required to install the Plugin **Elastic Export** from the plentyMarketplace first before you can use the format **KuponaDE-Plugin** in plentymarkets.
 
-Once both plugins are installed, you can create the export format **KuponaDE-Plugin**. Refer to the [Exporting data formats for price search engines](https://knowledge.plentymarkets.com/en/basics/data-exchange/exporting-data#30) page of the manual for further details about the individual format settings.
+Once both plugins are installed, you can create the export format **KuponaDE-Plugin**. Refer to the [Exporting data formats for price search engines](https://knowledge.plentymarkets.com/en/basics/data-exchange/export-import/exporting-data#30) page of the manual for further details about the individual format settings.
 
 Creating a new export format:
 
@@ -53,6 +53,7 @@ The following table lists details for settings, format settings and recommended 
 | **Stockbuffer**                                       | This option does not affect this format. |
 | **Stock for variations without stock limitation**     | This option does not affect this format. |
 | **Stock for variations with no stock administration** | This option does not affect this format. |
+| **Live currency conversion**                          | Activate this option to convert the price into the currency of the selected country of delivery. The price has to be released for the corresponding currency. |
 | **Retail price**                                      | Select gross price or net price from the drop-down list. |
 | **Offer price**                                       | This option does not affect this format. |
 | **RRP**                                               | Activate this option to transfer the RRP. |
