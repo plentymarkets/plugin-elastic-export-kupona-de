@@ -25,7 +25,7 @@ The following table lists details for settings, format settings and recommended 
 
 | **Setting**                                           | **Explanation** | 
 | :---                                                  | :--- |
-| **Settings**                                          |
+| **Settings**                                          | |
 | **Name**                                              | Enter a name. The export format is listed under this name in the overview within the **Exports** tab. |
 | **Type**                                              | Select the type **Item** from the drop-down list. |
 | **Format**                                            | Select **KuponaDE-Plugin**. |
@@ -34,9 +34,9 @@ The following table lists details for settings, format settings and recommended 
 | **Provisioning**                                      | Select **URL**. This option generates a token for authentication in order to allow external access. |
 | **Token, URL**                                        | If you have selected the option **URL** under **Provisioning**, then click on **Generate token**. The token is entered automatically. When the token is generated under **Token**, the URL is entered automatically. |
 | **File name**                                         | The file name must have the ending **.csv** or **.txt** for Kupona to be able to import the file successfully. |
-| **Item filters**                                      |
+| **Item filters**                                      | |
 | **Add item filters**                                  | Select an item filter from the drop-down list and click on **Add**. There are no filters set in default. It is possible to add multiple item filters from the drop-down list one after the other.<br/> **Variations** = Select **Transfer all** or **Only transfer main variations**.<br/> **Markets** = Select one market, several or **ALL**.<br/> The availability for all markets selected here has to be saved for the item. Otherwise, the export will not take place.<br/> **Currency** = Select a currency.<br/> **Category** = Activate to transfer the item with its category link. Only items belonging to this category are exported.<br/> **Image** = Activate to transfer the item with its image. Only items with images are transferred.<br/> **Client** = Select client.<br/> **Stock** = Select which stocks you want to export.<br/> **Flag 1 - 2** = Select the flag.<br/> **Manufacturer** = Select one, several or **ALL** manufacturers.<br/> **Active** = Only active variations are exported. |
-| **Format settings**                                   |
+| **Format settings**                                   | |
 | **Product URL**                                       | Choose which URL should be transferred to Kupona, the item’s URL or the variation’s URL. Variation SKUs can only be transferred in combination with the Ceres store. |
 | **Client**                                            | Select a client. This setting is used for the URL structure. |
 | **URL parameter**                                     | Enter a suffix for the product URL if this is required for the export. If you have activated the transfer option for the product URL further up, then this character string is added to the product URL. |
