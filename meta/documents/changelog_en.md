@@ -1,5 +1,10 @@
 # Release Notes for Elastic Export Kupona.de
 
+## v1.0.10 (2018-07-11)
+
+### Changed
+- An incorrect link in the user guide was corrected.
+
 ## v1.0.9 (2018-05-25)
 
 ### Changed
