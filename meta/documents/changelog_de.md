@@ -1,5 +1,11 @@
 # Release Notes für Elastic Export Kupona.de
 
+## v1.0.13 (2020-09-17)
+
+### Geändert
+- Plugin-Informationen aktualisiert.
+- Plugin-Beschreibung ins plentymarkets Handbuch umgezogen.
+
 ## v1.0.12 (2019-10-11)
 
 ### Geändert
