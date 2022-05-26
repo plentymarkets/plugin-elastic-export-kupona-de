@@ -109,7 +109,7 @@ class KuponaDE extends CSVPluginGenerator
 						break;
 					}
 
-					if(is_array($resultList['documents']) && count($resultList['documents']) > 0)
+					if(is_array($resultList['documents']) && count($resultList['documents'] ?? []) > 0)
 					{
 						if($this->filtrationService->filter($variation))
 						{
