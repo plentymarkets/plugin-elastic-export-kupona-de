@@ -1,5 +1,10 @@
 # Release Notes for Elastic Export Kupona.de
 
+## v1.0.14 (2022-05-26)
+
+### Changed
+- UPDATE - Additional updates to ensure compatibility with PHP 8.
+
 ## v1.0.13 (2020-09-17)
 
 ### Changed
