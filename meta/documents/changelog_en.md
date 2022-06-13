@@ -1,5 +1,10 @@
 # Release Notes for Elastic Export Kupona.de
 
+## v1.0.15 (2022-06-13)
+
+### Fixed
+- Fixed a broken link in the plugin user guide.
+
 ## v1.0.14 (2022-05-26)
 
 ### Changed
