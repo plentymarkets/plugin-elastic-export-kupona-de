@@ -2,7 +2,7 @@
 # User Guide für das ElasticExportKuponaDE-Plugin
 
 <div class="alert alert-info" role="alert">
-  Wie du das Plugin in plentymarkets einrichtest, <a href="https://knowledge.plentymarkets.com/maerkte/preisportale/kupona" target="_blank">ist im plentymarkets Handbuch beschrieben</a>.
+  Wie du das Plugin in plentymarkets einrichtest, <a href="https://knowledge.plentymarkets.com/de-de/manual/main/maerkte/kupona.html" target="_blank">ist im plentymarkets Handbuch beschrieben</a>.
 </div>
 
 ## Lizenz
