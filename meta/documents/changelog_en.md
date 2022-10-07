@@ -1,5 +1,10 @@
 # Release Notes for Elastic Export Kupona.de
 
+## v1.0.16 (2022-10-07)
+
+### Fixed
+- Fixed a check for shipping costs which caused variations not to be part of the export.
+
 ## v1.0.15 (2022-06-13)
 
 ### Fixed
