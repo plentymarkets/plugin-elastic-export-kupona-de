@@ -191,17 +191,23 @@ class KuponaDE extends CSVPluginGenerator
 		}
 
 		// Get shipping costs
+		$shippingCost = "";
 
-		if(array_key_exists($variation['data']['item']['id'], $this->shippingCostCache))
-		{
-			$shippingCost = $this->shippingCostCache[$variation['data']['item']['id']]['shippingCost'];
-		}
-		else
-		{
-			$shippingCost = $this->getShippingCost($variation['data']['item']['id'], $settings);
+		if (isset($variation['data']['item']['id'])) {
+			if (isset($this->shippingCostCache[$variation['data']['item']['id']]['shippingCost'])) {
+				$shippingCost = $this->shippingCostCache[$variation['data']['item']['id']]['shippingCost'];
+			} else {
+				$shippingCost = $this->getShippingCost($variation['data']['item']['id'], $settings);
+			}
 		}
 
-		$imageList = $this->elasticExportHelper->getImageListInOrder($variation, $settings, 0, $this->elasticExportHelper::VARIATION_IMAGES, $this->elasticExportHelper::SIZE_NORMAL, true);
+		$imageList = $this->elasticExportHelper->getImageListInOrder(
+			$variation,
+			$settings,
+			0,
+			$this->elasticExportHelper::VARIATION_IMAGES,
+			$this->elasticExportHelper::SIZE_NORMAL, true
+		);
 
 		$previewUrls = '';
 		$middleUrls = '';
@@ -242,7 +248,7 @@ class KuponaDE extends CSVPluginGenerator
 			'img_medium'            => $middleUrls,
 			'img_large'             => $normalUrls,
 			'ean_code'              => $this->elasticExportHelper->getBarcodeByType($variation, $settings->get('barcode')),
-			'versandkosten'         => $shippingCost,
+			'versandkosten'         => (string)$shippingCost,
 			'lieferzeit'            => $this->elasticExportHelper->getAvailability($variation, $settings),
 			'platform'              => '',
 			'grundpreis'            => $this->elasticExportPriceHelper->getBasePrice($variation, (float)$price, $settings->get('lang'), '/', false, true, $priceList['currency']),
@@ -252,15 +258,16 @@ class KuponaDE extends CSVPluginGenerator
 		$this->addCSVContent(array_values($data));
 	}
 
-    private function getShippingCost($itemId, $settings)
-	{
+	/**
+	 * @param int $itemId
+	 * @param KeyValue $settings
+	 * @return string
+	 */
+    private function getShippingCost($itemId, $settings):string {
 		$shippingCost = $this->elasticExportHelper->getShippingCost($itemId, $settings);
-		if(!is_null($shippingCost))
-		{
+		if(!is_null($shippingCost)) {
 			$shippingCost = number_format((float)$shippingCost, 2, '.', '');
-		}
-		else
-		{
+		} else {
 			$shippingCost = '';
 		}
 
