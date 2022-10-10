@@ -1,6 +1,6 @@
 # Release Notes für Elastic Export Kupona.de
 
-## v1.0.16 (2022-10-07)
+## v1.0.16 (2022-10-10)
 
 ### Behoben
 - Ein Fehler in der inhaltlichen Prüfung von Versandkosten führte zu fehlenden Varianten im Export.
